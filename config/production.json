@@ -9,7 +9,19 @@
     "minChunks": "require:./build/utils/isVendor#default"
   },
   "webpack": {
+    "mode": "production",
     "plugins": {
+      "clean": {
+        "module": {
+          "name": "clean-webpack-plugin",
+          "arguments": [
+            ["config:distPath"],
+            {
+              "root": "path:."
+            }
+          ]
+        }
+      },
       "loader-options": {
         "module": {
           "name": "webpack",
@@ -18,17 +30,6 @@
             {
               "minimize": true,
               "debug": false
-            }
-          ]
-        }
-      },
-      "uglify": {
-        "module": {
-          "name": "webpack",
-          "method": "optimize.UglifyJsPlugin",
-          "arguments": [
-            {
-              "sourceMap": true
             }
           ]
         }

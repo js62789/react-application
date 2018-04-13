@@ -33,8 +33,8 @@ export default function(rootComponentPath, rootId, reducersPath) {
           </head>
           <body>
             <div id="${rootId}">${markup}</div>
-            <script src="/vendor.js"></script>
-            <script src="/client.js"></script>
+            <script src="/vendor.bundle.js"></script>
+            <script src="/client.bundle.js"></script>
           </body>
         </html>
       `);

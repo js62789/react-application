@@ -6,11 +6,6 @@
     "reducersPath": "path:./src/reducers",
     "serverRenderPath": "path:./src/middleware/renderReact"
   },
-  "vendor": {
-    "name": "vendor",
-    "filename": "vendor.js",
-    "minChunks": "require:./src/utils/isVendor#default"
-  },
   "middleware": {
     "favicon": {
       "priority": 10,
@@ -42,16 +37,25 @@
     }
   },
   "webpack": {
-    "entry": "path:./src/client.js",
+    "entry": {
+      "client": "path:./src/client.js"
+    },
     "devtool": "cheap-source-map",
+    "stats": "normal",
     "output": {
       "path": "config:distPath",
-      "filename": "client.js"
+      "filename": "[name].bundle.js"
     },
-    "stats": {
-      "hash": false,
-      "version": false,
-      "modules": false
+    "optimization": {
+      "splitChunks": {
+        "cacheGroups": {
+          "commons": {
+            "test": "regex:[\\/]node_modules[\\/]",
+            "name": "vendor",
+            "chunks": "all"
+          }
+        }
+      }
     },
     "module": {
       "rules": [
@@ -73,15 +77,6 @@
               "ROOT_COMPONENT_PATH": "config:react.rootComponentPath",
               "REDUCERS_PATH": "config:react.reducersPath"
             }
-          ]
-        }
-      },
-      "vendor": {
-        "module": {
-          "name": "webpack",
-          "method": "optimize.CommonsChunkPlugin",
-          "arguments": [
-            "config:vendor"
           ]
         }
       }

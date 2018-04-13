@@ -1,10 +1,14 @@
 {
   "webpack": {
-    "entry": [
-      "path:./src/client.js",
-      "webpack-hot-middleware/client"
-    ],
+    "mode": "development",
+    "entry": {
+      "client": [
+        "path:./src/client.js",
+        "webpack-hot-middleware/client"
+      ]
+    },
     "devtool": "inline-source-map",
+    "stats": "verbose",
     "plugins": {
       "hot-module-replacement": {
         "module": {
