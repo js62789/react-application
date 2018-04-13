@@ -1,0 +1,38 @@
+{
+  "react": {
+    "root": "require:./build/components#default",
+    "reducers": "require:./build/reducers#default",
+    "render": "path:./build/middleware/renderReact",
+    "serverRenderPath": "path:./build/middleware/renderReact"
+  },
+  "vendor": {
+    "minChunks": "require:./build/utils/isVendor#default"
+  },
+  "webpack": {
+    "plugins": {
+      "loader-options": {
+        "module": {
+          "name": "webpack",
+          "method": "LoaderOptionsPlugin",
+          "arguments": [
+            {
+              "minimize": true,
+              "debug": false
+            }
+          ]
+        }
+      },
+      "uglify": {
+        "module": {
+          "name": "webpack",
+          "method": "optimize.UglifyJsPlugin",
+          "arguments": [
+            {
+              "sourceMap": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

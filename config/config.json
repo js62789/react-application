@@ -1,0 +1,90 @@
+{
+  "distPath": "path:./dist",
+  "react": {
+    "rootId": "app",
+    "rootComponentPath": "path:./src/components",
+    "reducersPath": "path:./src/reducers",
+    "serverRenderPath": "path:./src/middleware/renderReact"
+  },
+  "vendor": {
+    "name": "vendor",
+    "filename": "vendor.js",
+    "minChunks": "require:./src/utils/isVendor#default"
+  },
+  "middleware": {
+    "favicon": {
+      "priority": 10,
+      "module": {
+        "name": "serve-favicon",
+        "arguments": ["path:favicon.ico"]
+      }
+    },
+    "static-dist": {
+      "priority": 30,
+      "module": {
+        "name": "serve-static",
+        "arguments": [
+          "config:distPath"
+        ]
+      }
+    },
+    "render-react": {
+      "priority": 200,
+      "module": {
+        "name": "config:react.serverRenderPath",
+        "method": "default",
+        "arguments": [
+          "config:react.rootComponentPath",
+          "config:react.rootId",
+          "config:react.reducersPath"
+        ]
+      }
+    }
+  },
+  "webpack": {
+    "entry": "path:./src/client.js",
+    "devtool": "cheap-source-map",
+    "output": {
+      "path": "config:distPath",
+      "filename": "client.js"
+    },
+    "stats": {
+      "hash": false,
+      "version": false,
+      "modules": false
+    },
+    "module": {
+      "rules": [
+        {
+          "test": "regex:\\.jsx?$",
+          "loader": "babel-loader"
+        }
+      ]
+    },
+    "plugins": {
+      "env": {
+        "module": {
+          "name": "webpack",
+          "method": "EnvironmentPlugin",
+          "arguments": [
+            {
+              "NODE_ENV": "development",
+              "ROOT_ID": "config:react.rootId",
+              "ROOT_COMPONENT_PATH": "config:react.rootComponentPath",
+              "REDUCERS_PATH": "config:react.reducersPath"
+            }
+          ]
+        }
+      },
+      "vendor": {
+        "module": {
+          "name": "webpack",
+          "method": "optimize.CommonsChunkPlugin",
+          "arguments": [
+            "config:vendor"
+          ]
+        }
+      }
+    }
+  }
+}
