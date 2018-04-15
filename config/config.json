@@ -2,9 +2,9 @@
   "distPath": "path:./dist",
   "react": {
     "rootId": "app",
-    "rootComponentPath": "path:./src/components",
-    "reducersPath": "path:./src/reducers",
-    "serverRenderPath": "path:./src/middleware/renderReact"
+    "rootComponentPath": "sourcepath:./components",
+    "reducersPath": "sourcepath:./reducers",
+    "serverRenderPath": "sourcepath:./middleware/renderReact"
   },
   "middleware": {
     "favicon": {
@@ -38,7 +38,7 @@
   },
   "webpack": {
     "entry": {
-      "client": "path:./src/client.js"
+      "client": "sourcepath:./client.js"
     },
     "devtool": "cheap-source-map",
     "stats": "normal",

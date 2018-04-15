@@ -31,7 +31,7 @@ const resolveModule = config => {
 export default class ReactApplication extends Service {
   constructor() {
     super();
-    this.addConfiguration(path.join(__dirname, '..'));
+    this.addConfiguration(path.join(__dirname, '..'), __dirname);
   }
 
   getCompilerConfig(config = this.config) {
