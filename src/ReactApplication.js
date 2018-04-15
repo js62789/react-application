@@ -52,6 +52,7 @@ export default class ReactApplication extends Service {
 
     if (config.get('env:development')) {
       const compiler = this.getCompiler(config);
+
       config.use({
         "middleware": {
           "webpack-dev": {
@@ -77,5 +78,19 @@ export default class ReactApplication extends Service {
     }
 
     return config;
+  }
+
+  async compile() {
+    const config = await this.configure();
+    const compiler = this.getCompiler(config);
+
+    return new Promise((resolve, reject) => {
+      compiler.run((err, stats) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(stats);
+      });
+    });
   }
 }

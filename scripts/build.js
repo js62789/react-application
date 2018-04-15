@@ -6,13 +6,8 @@ if (process.env.NODE_ENV === 'production') {
   ReactApplication = require('../src').ReactApplication;
 }
 
-async function build(app) {
-  app.configure().then(config => {
-    const compiler = app.getCompiler(config);
-    compiler.run(() => {
-      console.log('Compile complete');
-    });
-  });
-}
+const app = new ReactApplication();
 
-build(new ReactApplication());
+app.compile().then(stats => {
+  console.log('Compile complete');
+});
