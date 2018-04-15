@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "start": "node -r babel-register scripts/run",
     "postinstall": "npm run build",
