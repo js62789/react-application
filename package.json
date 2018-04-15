@@ -24,7 +24,10 @@
     "redux": "^3.7.2",
     "serve-favicon": "^2.5.0",
     "serve-static": "^1.13.2",
-    "service": "git+https://github.com/js62789/service.git"
+    "service": "git+https://github.com/js62789/service.git",
+    "webpack": "^4.5.0",
+    "webpack-dev-middleware": "^3.1.2",
+    "webpack-hot-middleware": "^2.21.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -38,9 +41,6 @@
     "babel-register": "^6.26.0",
     "clean-webpack-plugin": "^0.1.19",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.7.0",
-    "webpack": "^4.5.0",
-    "webpack-dev-middleware": "^3.1.2",
-    "webpack-hot-middleware": "^2.21.2"
+    "eslint-plugin-react": "^7.7.0"
   }
 }
