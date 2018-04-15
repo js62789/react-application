@@ -9,7 +9,11 @@
       "request": "launch",
       "name": "Launch Development",
       "program": "${workspaceFolder}/scripts/run.js",
-      "outputCapture": "std"
+      "outputCapture": "std",
+      "runtimeArgs": [
+        "-r",
+        "babel-register"
+      ]
     },
     {
       "type": "node",
