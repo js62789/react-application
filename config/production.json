@@ -17,7 +17,7 @@
           "arguments": [
             ["config:distPath"],
             {
-              "root": "path:."
+              "root": "config:rootPath"
             }
           ]
         }

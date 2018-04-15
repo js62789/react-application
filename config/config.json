@@ -1,4 +1,5 @@
 {
+  "rootPath": "path:.",
   "distPath": "path:./dist",
   "react": {
     "rootId": "app",
