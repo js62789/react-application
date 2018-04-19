@@ -35,10 +35,13 @@ export default class ReactApplication extends Service {
   }
 
   getCompilerConfig(config = this.config) {
-    const { plugins, ...webpackConfig } = config.get('webpack');
+    const { plugins, module, ...webpackConfig } = config.get('webpack');
 
     return {
       ...webpackConfig,
+      module: {
+        rules: Object.values(module.rules)
+      },
       plugins: Object.values(plugins).map(plugin => resolveModule(plugin.module))
     };
   }

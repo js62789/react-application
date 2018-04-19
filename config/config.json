@@ -59,12 +59,12 @@
       }
     },
     "module": {
-      "rules": [
-        {
+      "rules": {
+        "js": {
           "test": "regex:\\.jsx?$",
           "loader": "babel-loader"
         }
-      ]
+      }
     },
     "plugins": {
       "env": {
