@@ -15,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clean-webpack-plugin": "^0.1.19",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -24,12 +23,7 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "serve-favicon": "^2.5.0",
-    "serve-static": "^1.13.2",
-    "service": "git+https://github.com/js62789/service.git",
-    "webpack": "^4.5.0",
-    "webpack-dev-middleware": "^3.1.2",
-    "webpack-hot-middleware": "^2.21.2"
+    "web-application": "git+https://github.com/js62789/web-application.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

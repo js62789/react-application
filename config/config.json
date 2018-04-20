@@ -1,6 +1,8 @@
 {
   "rootPath": "path:.",
   "distPath": "path:./dist",
+  "entry": "path:./src/client.js",
+  "routesDir": "sourcepath:./routes",
   "react": {
     "rootId": "app",
     "rootComponentPath": "sourcepath:./components",
@@ -8,22 +10,6 @@
     "serverRenderPath": "sourcepath:./middleware/renderReact"
   },
   "middleware": {
-    "favicon": {
-      "priority": 10,
-      "module": {
-        "name": "serve-favicon",
-        "arguments": ["path:favicon.ico"]
-      }
-    },
-    "static-dist": {
-      "priority": 30,
-      "module": {
-        "name": "serve-static",
-        "arguments": [
-          "config:distPath"
-        ]
-      }
-    },
     "render-react": {
       "priority": 200,
       "module": {
@@ -38,39 +24,9 @@
     }
   },
   "webpack": {
-    "entry": {
-      "client": "sourcepath:./client.js"
-    },
-    "devtool": "cheap-source-map",
-    "stats": "normal",
-    "output": {
-      "path": "config:distPath",
-      "filename": "[name].bundle.js"
-    },
-    "optimization": {
-      "splitChunks": {
-        "cacheGroups": {
-          "commons": {
-            "test": "regex:[\\/]node_modules[\\/]",
-            "name": "vendor",
-            "chunks": "all"
-          }
-        }
-      }
-    },
-    "module": {
-      "rules": {
-        "js": {
-          "test": "regex:\\.jsx?$",
-          "loader": "babel-loader"
-        }
-      }
-    },
     "plugins": {
       "env": {
         "module": {
-          "name": "webpack",
-          "method": "EnvironmentPlugin",
           "arguments": [
             {
               "NODE_ENV": "development",
