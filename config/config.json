@@ -2,7 +2,6 @@
   "rootPath": "path:.",
   "distPath": "path:./dist",
   "entry": "path:./src/client.js",
-  "routesDir": "sourcepath:./routes",
   "react": {
     "rootId": "app",
     "rootComponentPath": "sourcepath:./components",
@@ -10,11 +9,9 @@
     "serverRenderPath": "sourcepath:./middleware/renderReact"
   },
   "middleware": {
-    "render-react": {
-      "priority": 200,
+    "render-page": {
       "module": {
         "name": "config:react.serverRenderPath",
-        "method": "default",
         "arguments": [
           "config:react.rootComponentPath",
           "config:react.rootId",
