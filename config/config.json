@@ -8,6 +8,21 @@
     "reducersPath": "sourcepath:./reducers",
     "serverRenderPath": "sourcepath:./middleware/renderReact"
   },
+  "babelLoader": {
+    "options": {
+      "babelrc": false,
+      "presets": [
+        "react"
+      ],
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-async-to-generator",
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "react-hot-loader/babel"
+      ]
+    }
+  },
   "middleware": {
     "render-page": {
       "module": {

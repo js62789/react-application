@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import PropTypes from 'prop-types';
 import { Types } from '../actions';
+import styles from '../styles/main.css';
 
 class Application extends React.Component {
   static propTypes = {
@@ -39,7 +40,7 @@ class Application extends React.Component {
     const { isHealthy } = this.props;
 
     return (
-      <center>
+      <center className={styles.healthStatus}>
         <h1>React Application</h1>
         <h2>Your application is {!isHealthy && 'not'} healthy</h2>
       </center>
